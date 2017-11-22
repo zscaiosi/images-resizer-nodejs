@@ -8,7 +8,13 @@ imgResizer.getImagesArray(function(array){
 //Then as callback maps the array and calls .getImage() for each of them
   array.map( (jsonUrl, index) => {
 
-    imgResizer.getImage(jsonUrl.url, index);
+    imgResizer.getImage(jsonUrl.url, index, function(response, index, url){
+      
+      imgResizer.resizeImages(response, index, url, function(isOk){
+        //Callback for async test
+      });
+
+    });
 
   });
 });
