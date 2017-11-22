@@ -1,8 +1,9 @@
 const expect = require("chai").expect;
 const ImageResizer = require("../src/models/ImageResizer");
-
+//Instantiates ImageResizers
 let imgResizer = new ImageResizer("http://54.152.221.29/images.json");
 
+//Describes the whole ImageResizer class' tests
 describe("ImageResizer", function(){
 
   describe("getImages()", function(){

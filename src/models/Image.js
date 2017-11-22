@@ -14,10 +14,9 @@ Image.prototype.list = function(next){
       if( findError ) {
         next(500, { ok: false, result: null });
       } else {
-        console.log(found);
         next(200, { ok: true, result: found });
       }
-
+      db.close();
     });
 
   })
