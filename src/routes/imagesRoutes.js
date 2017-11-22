@@ -1,12 +1,20 @@
 const router = require("express").Router();
-const ImageResizer = require("../models/ImageResizer");
+const Image = require("../models/Image");
+const path = require("path");
 
-router.get('/resized/search', (req, res) => {
-  const img = new ImageResizer("http://54.152.221.29/images.json");
+router.get('/resized/list', (req, res) => {
+  const img = new Image();
 
-  img.getImage(function(image){
-    res.status(200).send(image);
+  img.list(function(status, payload){
+    res.status(status).json(payload);
   });
+
+});
+
+router.get('/resized/:name', (req, res) => {
+  const { name } = req.params;
+  
+  res.sendFile(path.join(__dirname, '../../images/', name));
 
 });
 
