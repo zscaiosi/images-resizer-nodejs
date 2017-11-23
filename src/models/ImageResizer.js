@@ -2,6 +2,7 @@ const sharp = require("sharp");
 const axios = require("axios");
 const mongoDBClient = require("mongodb").MongoClient;
 const mongo = require("../config/hosts.json");
+const path = require("path");
 
 function ImageResizer(originalUrl) {
   this._originalUrl = originalUrl;
@@ -113,15 +114,15 @@ ImageResizer.prototype.resizeImages = function(imgString, index, originalUrl, ne
   //Resizes all the images using sharp lib 
   sharp(buffer)
     .resize(320, 240)
-    .toFile(`./images/image${index}_small.jpg`, (error, info) => {
+    .toFile(path.join(__dirname, '../../images/', `image${index}_small.jpg`), (error, info) => {
 
       sharp(buffer)
         .resize(384, 288)
-        .toFile(`./images/image${index}_medium.jpg`, (error, info) => {
+        .toFile(path.join(__dirname, '../../images/', `image${index}_medium.jpg`), (error, info) => {
 
           sharp(buffer)
             .resize(640, 480)
-            .toFile(`./images/image${index}_large.jpg`, (error, info) => {
+            .toFile(path.join(__dirname, '../../images/', `image${index}_large.jpg`), (error, info) => {
 
             });
         });

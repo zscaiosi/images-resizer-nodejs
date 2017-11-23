@@ -13,8 +13,8 @@ router.get('/resized/list', (req, res) => {
 
 router.get('/resized/:name', (req, res) => {
   const { name } = req.params;
-  
-  res.sendFile(path.join(__dirname, '../../images/', name));
+
+  res.sendFile(path.join(__dirname, '../../images', name));
 
 });
 
