@@ -1,4 +1,4 @@
 {
   "skyHubUrl": "​ http://54.152.221.29/images.json",
-  "mongoDb" : "mongodb://mongocaio:m0ng0ldb*@clusteruno-shard-00-01-7t23t.mongodb.net:27017/revelo_tests?ssl=true&replicaSet=ClusterUno-shard-0&authSource=admin"
+  "mongoDb" : "mongodb://mongocaio:<password>@clusteruno-shard-00-01-7t23t.mongodb.net:27017/revelo_tests?ssl=true&replicaSet=ClusterUno-shard-0&authSource=admin"
 }
